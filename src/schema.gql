@@ -1,0 +1,58 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Author {
+  email: String!
+  firstName: String
+  id: Int!
+  isActive: Boolean!
+  lastName: String
+  posts: [Post!]
+}
+
+input CreateAuthorInput {
+  email: String!
+  firstName: String
+  lastName: String
+}
+
+input CreatePostInput {
+  content: String
+  title: String!
+}
+
+type Mutation {
+  createAuthor(createAuthorInput: CreateAuthorInput!): Author!
+  createPost(createPostInput: CreatePostInput!): Post!
+  removeAuthor(authorId: Int!): String!
+  removePost(id: Int!): Post!
+  updateAuthor(authorId: Int!, updateAuthorInput: UpdateAuthorInput!): Author!
+  updatePost(updatePostInput: UpdatePostInput!): Post!
+}
+
+type Post {
+  author: Author!
+  content: String
+  id: Int!
+  title: String!
+}
+
+type Query {
+  getAuthorById(authorId: Int!): Author!
+  getAuthors: [Author!]!
+  post(id: Int!): Post!
+  posts: [Post!]!
+}
+
+input UpdateAuthorInput {
+  email: String
+  firstName: String
+  lastName: String
+}
+
+input UpdatePostInput {
+  content: String
+  id: Int!
+  title: String
+}
